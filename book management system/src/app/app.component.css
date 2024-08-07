@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; 
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDaek2X6uD2ABKWSy2C8Fc6VyA8IFCoHwOcw&s'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .container {
+    margin-top: 40px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .table-output-container {
+    margin-top: 40px;
+  }
+  
+  .table-output-container .table {
+    margin-bottom: 0;
+  }
+  
+  .table-output-container th,
+  .table-output-container td {
+    text-align: center;
+  }
+  
+  .table-output-container th {
+    background-color: #f2f2f2;
+  }
+  

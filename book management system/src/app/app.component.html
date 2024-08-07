@@ -1,0 +1,101 @@
+ <!DOCTYPE html>>
+<html>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  />
+</head>
+<body>
+  <h1>Book Management System</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="Book Id"> Book Id </label>
+            <input
+              type="text"
+              class="form-control"
+              name="id"
+              #id="ngModel"
+              ngModel
+              required
+              pattern="[0-9]+"
+            />
+            <div *ngIf="id.touched">
+              <div *ngIf="id.errors?.['required']">
+                <font color="red"><b>Book Id Required</b></font>
+              </div>
+              <div *ngIf="id.errors?.['pattern']">
+                <font color="red"><b>Wrong input</b></font>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Book Title"> Book Title </label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              #title="ngModel"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="Book Author"> Book Author </label>
+            <input
+              type="text"
+              class="form-control"
+              name="author"
+              #author="ngModel"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="Book Price"> Book Price </label>
+            <input
+              type="text"
+              class="form-control"
+              name="price"
+              #price="ngModel"
+              ngModel
+            />
+          </div>
+
+          <button type="button" class="btn btn-success" (click)="insertBook(myForm.value)">Insert</button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="updateBook(myForm.value)">Update</button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="deleteBook(myForm.value)">Delete</button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-warning" (click)="findBookById(myForm.value.id)">Find</button>
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-info" (click)="findAllBooks()">Find All</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <h3>{{ result }}</h3>
+  <div *ngIf="flag" class="table-output-container">
+    <table width="80%" align="center" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Book Id</th>
+          <th>Book Title</th>
+          <th>Book Author</th>
+          <th>Book Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of bookArr">
+          <td>{{ book.id }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
